@@ -1,0 +1,20 @@
+{
+  "name": "@noirprotocol/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for Noir Protocol. Place orders, stream the book, verify settlements.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": ["noir-protocol", "clob", "orderbook", "tokenized-equities", "rwa", "sdk"],
+  "license": "MIT"
+}
