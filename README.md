@@ -1,21 +1,21 @@
-# noir-sdk
+# pool-sdk
 
-TypeScript SDK for Noir Protocol — the CLOB matching engine for tokenized equities on Robinhood Chain.
+TypeScript SDK for Pool Protocol — the CLOB matching engine for tokenized equities on Robinhood Chain.
 
 Place orders, read the book, verify settlements. Orders match against resting limit orders first, then route unmatched remainder through Uniswap v4 pools for maximum fill.
 
 ## Install
 
 ```bash
-npm install @noirprotocol/sdk
+npm install @poolprotocol/sdk
 ```
 
 ## Usage
 
 ```typescript
-import { NoirClient, buildSignedOrder } from '@noirprotocol/sdk';
+import { PoolClient, buildSignedOrder } from '@poolprotocol/sdk';
 
-const client = new NoirClient('http://localhost:3000');
+const client = new PoolClient('http://localhost:3000');
 
 // Sign and place a limit buy
 // The engine matches against the book first, then routes remainder to the v4 pool
@@ -38,7 +38,7 @@ await client.cancelOrder(order.id);
 
 ## API
 
-### `NoirClient`
+### `PoolClient`
 
 | Method | Returns | Description |
 |---|---|---|
@@ -51,7 +51,7 @@ await client.cancelOrder(order.id);
 ### Signing
 
 ```typescript
-import { signOrder, verifyOrder } from '@noirprotocol/sdk';
+import { signOrder, verifyOrder } from '@poolprotocol/sdk';
 
 const sig = signOrder({ asset, side, type, price, size, trader, nonce }, secret);
 const valid = verifyOrder({ asset, side, type, price, size, trader, nonce }, sig, secret);
