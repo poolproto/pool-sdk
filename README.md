@@ -1,8 +1,8 @@
 # noir-sdk
 
-TypeScript SDK for Noir Protocol.
+TypeScript SDK for Noir Protocol — the CLOB matching engine for tokenized equities on Robinhood Chain.
 
-Place orders, read the book, verify settlements.
+Place orders, read the book, verify settlements. Orders match against resting limit orders first, then route unmatched remainder through Uniswap v4 pools for maximum fill.
 
 ## Install
 
@@ -18,6 +18,7 @@ import { NoirClient, buildSignedOrder } from '@noirprotocol/sdk';
 const client = new NoirClient('http://localhost:3000');
 
 // Sign and place a limit buy
+// The engine matches against the book first, then routes remainder to the v4 pool
 const signed = buildSignedOrder(
   { asset: 'AAPL/USD', side: 'buy', type: 'limit', price: 195.50, size: 100, trader: '0xabc' },
   process.env.TRADER_SECRET!
@@ -41,11 +42,11 @@ await client.cancelOrder(order.id);
 
 | Method | Returns | Description |
 |---|---|---|
-| `placeOrder(params)` | `PlaceOrderResult` | Place a limit or market order |
+| `placeOrder(params)` | `PlaceOrderResult` | Place a limit or market order (book + pool hybrid fill) |
 | `cancelOrder(id)` | `{ cancelled: boolean }` | Cancel an open order |
 | `getOrder(id)` | `Order` | Fetch order by ID |
 | `getBook(asset)` | `OrderBookSnapshot` | Current bids and asks |
-| `getTrades(asset)` | `Trade[]` | Trade history for an asset |
+| `getTrades(asset)` | `Trade[]` | Trade history for an asset (book and pool fills) |
 
 ### Signing
 
