@@ -6,7 +6,7 @@ import {
   PlaceOrderResult,
 } from './types.js';
 
-export class NoirClient {
+export class PoolClient {
   private baseUrl: string;
 
   constructor(baseUrl = 'http://localhost:3000') {
