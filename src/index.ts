@@ -1,4 +1,4 @@
-export { NoirClient } from './client.js';
+export { PoolClient } from './client.js';
 export { signOrder, verifyOrder, buildSignedOrder, hashOrder } from './signer.js';
 export type {
   Order,
