@@ -1,7 +1,7 @@
 {
-  "name": "@noirprotocol/sdk",
+  "name": "@poolprotocol/sdk",
   "version": "0.1.0",
-  "description": "TypeScript SDK for Noir Protocol. Place orders, stream the book, verify settlements.",
+  "description": "TypeScript SDK for Pool Protocol. Place orders, stream the book, verify settlements.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,6 +15,6 @@
     "build": "tsc",
     "dev": "tsc --watch"
   },
-  "keywords": ["noir-protocol", "clob", "orderbook", "tokenized-equities", "rwa", "sdk"],
+  "keywords": ["pool-protocol", "clob", "orderbook", "tokenized-equities", "rwa", "sdk"],
   "license": "MIT"
 }
